@@ -39,8 +39,12 @@ if atm == "yes":
         typeOfTransaction = input("\nWould you like to make a Withdrawal, Deposit, or check your balance\nW = Withdrawal or D = Deposit or B = balance: ").upper()
         if typeOfTransaction == "W":
             withdrawalAmount = int(input("Enter amount of withdraw: "))
-            balance = balance - withdrawalAmount 
-            print("Your new balance is: $" + str(balance))
+            balance = balance - withdrawalAmount
+            if withdrawalAmount < balance:
+                print("Your new balance is: $" + str(balance))
+            elif withdrawalAmount > balance:
+                print("\nSorry you don't have enough money")
+
         elif typeOfTransaction == "D":
             depositAmount = int(input("Enter amount you want to deposit: "))
             balance = balance + depositAmount
@@ -52,7 +56,6 @@ if atm == "yes":
 
     else:
         print("Sorry",first_name,last_name,"your PIN doesn't match our records")
-
 
 
 
